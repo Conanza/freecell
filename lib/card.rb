@@ -6,7 +6,7 @@ class Card
     :hearts => "hearts"
   }
 
-  RANKS = {
+  VALUES = {
     :ace => 1,
     :two => 2, 
     :three => 3, 
@@ -22,10 +22,10 @@ class Card
     :king => 13
   }
 
-  attr_reader :suit, :rank, :color
+  attr_reader :suit, :value, :color
 
-  def initialize(suit, rank)
-    @suit, @rank = suit, rank
+  def initialize(suit, value)
+    @suit, @value = suit, value
     @color = [:spades, :clubs].include?(@suit) ? :black : :red
   end
 
@@ -37,7 +37,7 @@ class Card
     SUITS.keys
   end
 
-  def value
-    RANKS[rank]
+  def rank
+    VALUES[value]
   end
 end
