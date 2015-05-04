@@ -2,12 +2,9 @@ require_relative 'card'
 
 class Deck
   def self.all_cards
-    cards = []
-    Card.suits.product(Card.values).each do |(suit, value)|
-      cards << Card.new(suit, value)
-    end
-
-    cards.shuffle
+    Card.suits.product(Card.values).map do |(suit, value)|
+      Card.new(suit, value)
+    end.shuffle
   end
 
   attr_accessor :cards
